@@ -19,9 +19,9 @@
         state: directory
     - name: Download and Extract Frontend Content
       ansible.builtin.unarchive:
-         src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
-         dest: /usr/share/nginx/html
-         remote_src: yes
+        src: http://expense-artifacts.s3.amazonaws.com/frontendzip
+        dest: /usr/share/nginx/html
+        remote_src: yes
     - name: Start Nginx service
       ansible.builtin.systemd:
          name: nginx
