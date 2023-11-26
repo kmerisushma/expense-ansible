@@ -13,7 +13,7 @@
     - name: Clean old Nginx Directory
       ansible.builtin.file:
         state: absent
-        path: /user/share/nginx/html/*
+        path: /usr/share/nginx/html/*
     - name: Download and Extract Frontend Content
       ansible.builtin.unarchive:
         src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
