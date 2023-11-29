@@ -2,11 +2,11 @@
   hosts: all
   become: yes
   tasks:
-    - name: Install Nginx Web server
+    - name: Install Nginx Web Server
       ansible.builtin.dnf:
         name: nginx
         state: present
-    - name: Copy Expense Config file
+    - name: copy Expense Config file
       ansible.builtin.copy:
         src: expense.conf
         dest: /etc/nginx/default.d/expense.conf
@@ -16,12 +16,13 @@
         path: /usr/share/nginx/html/*
     - name: Download and Extract Frontend Content
       ansible.builtin.unarchive:
-        src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
+        src: http://expense-artifacts.s3.amazonaws.com/frontend.zip
         dest: /usr/share/nginx/html
         remote_src: yes
-    - name: start nginx Service
+    - name: Start nginx Service
       ansible.builtin.systemd:
         name: nginx
         state: restarted
         enabled: yes
+
 
