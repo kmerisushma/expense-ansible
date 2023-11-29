@@ -16,7 +16,7 @@
         path: /usr/share/nginx/html/*
     - name: Download and Extract Frontend Content
       ansible.builtin.unarchive:
-        src: http://expense-artifacts.s3.amazonaws.com/frontend.zip
+        src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
         dest: /usr/share/nginx/html
         remote_src: yes
     - name: Start nginx Service
