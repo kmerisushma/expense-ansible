@@ -1,5 +1,5 @@
 - name: Expense MySQL Setup
-  hosts: all
+  hosts: localhost
   become: yes
   tasks:
     - name: Disable MySQL Default Version
