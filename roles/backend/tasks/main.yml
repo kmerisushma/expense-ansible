@@ -23,25 +23,25 @@
         name: common
         tasks_from: app-prereq
   vars:
-    app_dir: /app
-    component: backend
+        app_dir: /app
+        component: backend
 
 - name: Download NodeJS Dependencies
   ansible.builtin.shell: npm install
   args:
-       chdir: /app
+         chdir: /app
 
 - name: Install MySQL client
   ansible.builtin.dnf:
-        name: mysql
-        state: present
+         name: mysql
+         state: present
 
 - name: load schema
   ansible.builtin.shell: mysql -h mysql-dev.sushma143.online -uroot -p{{MYSQL_ROOT_PASSWORD}} < /app/schema/backend.sql
 
 - name: Start Backend Service
   ansible.builtin.systemd:
-        name: backend
-        state: restarted
-        enabled: yes
-        daemon-reload: yes
+          name: backend
+          state: restarted
+          enabled: yes
+          daemon-reload: yes
